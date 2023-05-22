@@ -43,9 +43,8 @@ borders_barnet['geometry'] = borders_barnet['geometry'].to_crs(epsg=4277)
 intersection = gpd.overlay(borders_barnet, sas, how='intersection', keep_geom_type=False)
 intersection = intersection[['NAME','Type','Date']]
 
+intersection.to_csv('stop_and_search_preprocessed.csv')
 
 
-    
-    
     
     
