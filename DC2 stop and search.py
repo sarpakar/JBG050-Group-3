@@ -10,7 +10,7 @@ import shapely as shp
 import geopandas as gpd
 
 
-path_borders = 'C:\\Users\\Goshko\\Desktop\\DC 2\\JBG050-Group-3\\data_borders\\Data\\GB\\district_borough_unitary_ward_region.shp'
+path_borders = 'C:\\Users\\Goshko\\Desktop\\DC 2\\JBG050-Group-3\\data_borders\\GB\\district_borough_unitary_ward_region.shp'
 
 data = gpd.read_file(path_borders)
 
@@ -25,7 +25,7 @@ wards = ['Childs Hill Ward', 'Edgware Ward', 'Colindale North Ward', 'Barnet Val
 borders_barnet = data[data['NAME'].isin(wards)]
 borders_barnet = borders_barnet[['NAME', 'AREA_CODE', 'geometry']]
 borders_barnet = borders_barnet[borders_barnet['AREA_CODE'] == 'LBW']
-borders_barnet.drop(index = [6376], inplace=True)
+borders_barnet.drop(index = [3210], inplace=True)
 borders_barnet.reset_index(inplace=True)
 
 
@@ -37,14 +37,11 @@ geometry = gpd.points_from_xy(sas['Longitude'], sas['Latitude'], crs='OSGB36')
 
 sas['geometry'] = geometry.to_crs(epsg=4277)
 borders_barnet['geometry'] = borders_barnet['geometry'].to_crs(epsg=4277)
-
+     
 
 
 intersection = gpd.overlay(borders_barnet, sas, how='intersection', keep_geom_type=False)
-intersection = intersection[['NAME','Type','Date']]
+# intersection = intersection[['NAME','Type','Date', 'Outcome']]
 
 intersection.to_csv('stop_and_search_preprocessed.csv')
 
-
-    
-    
