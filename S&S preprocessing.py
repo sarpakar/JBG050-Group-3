@@ -10,7 +10,7 @@ import shapely as shp
 import geopandas as gpd
 
 
-path_borders = 'C:\\Users\\Goshko\\Desktop\\DC 2\\JBG050-Group-3\\data_borders\\GB\\district_borough_unitary_ward_region.shp'
+path_borders = 'data_borders\\GB\\district_borough_unitary_ward_region.shp'
 
 data = gpd.read_file(path_borders)
 
@@ -29,7 +29,7 @@ borders_barnet.drop(index = [3210], inplace=True)
 borders_barnet.reset_index(inplace=True)
 
 
-path_sas = 'C:\\Users\\Goshko\\Desktop\\DC 2\\JBG050-Group-3\\stop_and_search.csv'
+path_sas = 'stop_and_search.csv'
 sas = gpd.read_file(path_sas)
 
 geometry = gpd.points_from_xy(sas['Longitude'], sas['Latitude'], crs='OSGB36')
