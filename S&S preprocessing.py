@@ -9,7 +9,6 @@ Created on Wed May 17 16:49:38 2023
 import shapely as shp
 import geopandas as gpd
 
-
 path_borders = 'data_borders\\GB\\district_borough_unitary_ward_region.shp'
 
 data = gpd.read_file(path_borders)
@@ -32,14 +31,15 @@ borders_barnet.reset_index(inplace=True)
 path_sas = 'stop_and_search.csv'
 sas = gpd.read_file(path_sas)
 
+# transform coordinates of stop and searches into shapely points on a coordinate sys.
 geometry = gpd.points_from_xy(sas['Longitude'], sas['Latitude'], crs='OSGB36')
 
 
+# ensuring that the ward borders (polygons) and s&s points share a coor.sys.
 sas['geometry'] = geometry.to_crs(epsg=4277)
 borders_barnet['geometry'] = borders_barnet['geometry'].to_crs(epsg=4277)
      
-
-
+# find intersection between ward borders and s&s points
 intersection = gpd.overlay(borders_barnet, sas, how='intersection', keep_geom_type=False)
 # intersection = intersection[['NAME','Type','Date', 'Outcome']]
 
