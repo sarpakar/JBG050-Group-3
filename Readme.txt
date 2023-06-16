@@ -1,58 +1,15 @@
- BOUNDARY-LINE Digital Data
-
- 1. Before you begin
-
- All Ordnance Survey Digital Data is subject to Crown Copyright. 
- Your right to use the data you have received is subject to your
- existing licence agreement(s). Your use of the data is limited to the 
- scope of use set out in your existing licence agreement(s). 
-
- If you have not entered into any existing Licence agreements relating
- to your use of the data then you must not access or store the data. 
- Where data has been supplied on media, you must promptly return the 
- media to Ordnance Survey Digital Supply Team, Adanac Drive, 
- Southampton, SO16 0AS.
-
-
- 1.High Level Data Structure
-
-
-   The directory structure of the media is shown below:
-
-
-                               ROOT 
-                                |
-             -------------------------------------
-            |                   |                |
-           DOC            README.txt            DATA
-
-
-
- 2.  Load instructions and guidance notes
-
- To use Ordnance Survey digital data you will need to load it into a 
- database or use software which has a GIS/Digital Mapping capability. 
- The loading of the data will often involve a translation process which
- takes the data we supply and transforms it into a format suitable for
- the specific software.This translation may either be an integral part 
- of the GIS/Digital Mapping software or an additional software module. 
-
-
- 3. Contacting Ordnance Survey
-
- Customer Services
- Adanac Drive
- Southampton
- SO16 0AS
-
- Phone: 03456 050505
- Email: CustomerServices@os.uk 
-
-
-
-
-
-
-
-
+Read about the project in detail: DON’T FORGET REPORT LINK HERE
+To run the project code:
+1)	Download data into the same folder as the code files: https://drive.google.com/drive/folders/1sXtsmHbgv9tzUQ2QWe6BEQs94in5gbSA?usp=sharing
+2)	The following libraries are needed before running the code files: 
+	scikit-learn, xgboost, gluonts, mlforecast, window_ops, shapely, geopandas, 
+	random, re, scipy, glob, pandas, numpy, matplotlib, seaborn, plotly, ipywidgets, datetime
+3)	Run “Preprocessing.ipynb” to produce “burglaries_preprocessed.csv” (used in “Models.ipynb”) and “stop_and_search.csv” (used in “S&S preprocessing.py”)
+4)	Run “S&S preprocessing.py” to produce “stop_and_search_preprocessed.csv” (used “S&S correlation analysis.ipynb”)
+5)	Run “Models.ipynb” for the forecasting and allocation algorithms
+6)	Run “S&S correlation analysis.ipynb” to examine the correlation between stop and search frequency and frequency of criminal activity
+7)	The following Jupyter notebooks can be ran independently of the rest and are not essential to the forecasting and allocation parts of the project: 
+	“Burglaries map.ipynb” (creates a map showing the approximate coordinates of all burglaries in Barnet), 
+	“Exploratory vis.ipynb” (creates the exploratory visualizations we made in the beginning of the project”, and 
+	“(experiment) deriving criminal hours s&s.ipynb” (trying to find the hours with most criminal activity stop and search data)
 
