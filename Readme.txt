@@ -1,6 +1,7 @@
-Read about the project in detail: DON’T FORGET REPORT LINK HERE
+Read about the project in detail in the "Technical report" PDF at:
+https://drive.google.com/drive/folders/1sXtsmHbgv9tzUQ2QWe6BEQs94in5gbSA?usp=sharing
 To run the project code:
-1)	Download data into the same folder as the code files: https://drive.google.com/drive/folders/1sXtsmHbgv9tzUQ2QWe6BEQs94in5gbSA?usp=sharing
+1)	Download data into the same folder as the code files 
 2)	The following libraries are needed before running the code files: 
 	scikit-learn, xgboost, gluonts, mlforecast, window_ops, shapely, geopandas, 
 	random, re, scipy, glob, pandas, numpy, matplotlib, seaborn, plotly, ipywidgets, datetime
